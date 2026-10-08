@@ -1,0 +1,2 @@
+# Stundenplan-Frontend
+Für Stundenplanprojekt
