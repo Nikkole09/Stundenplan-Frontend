@@ -1,0 +1,32 @@
+
+.startseite {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  font-family: Arial, sans-serif;
+  padding: 50px 20px;
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #008577;
+  font-size: 36px;
+  margin-bottom: 40px;
+}
+
+.htw-logo {
+  width: 220px;
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 30px;
+}
+
+p {
+  color: #333333;
+  font-size: 20px;
+  line-height: 1.6;
+  margin: 12px 0;
+}
