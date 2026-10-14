@@ -36,7 +36,7 @@ Dieser Befehl installiert die benötigten Pakete. Er wird bei der ersten Einrich
 **4. Frontend starten**
 
 ```bash
-npx ng serve
+ ng serve
 ```
 
 **5. Anwendung im Browser öffnen**
