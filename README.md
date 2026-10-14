@@ -1,59 +1,56 @@
-# StundenplanFrontend
+## Startanleitung für das Frontend (Angular)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.2.
+Diese Anleitung beschreibt, wie das Frontend des Stundenplan-Projekts lokal eingerichtet und gestartet werden kann.
 
-## Development server
+### Voraussetzungen
 
-To start a local development server, run:
+Für die lokale Entwicklung werden folgende Programme benötigt:
 
-```bash
-ng serve
-```
+- **Git** – zum Herunterladen und Aktualisieren des Projekts.
+- **Node.js** – passende Version für das Angular-Projekt.
+- **npm** – wird mit Node.js installiert.
+- **Visual Studio Code** – empfohlene Entwicklungsumgebung.
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Frontend installieren und starten
 
-## Code scaffolding
+**1. Repository herunterladen**
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Das Frontend-Repository von GitHub klonen:
 
 ```bash
-ng generate --help
+git clone https://github.com/Nikkole09/Stundenplan-Frontend.git
 ```
 
-## Building
+**2. Projekt öffnen**
 
-To build the project run:
+Den Ordner `Stundenplan-Frontend` in Visual Studio Code öffnen und ein Terminal starten.
+
+**3. Abhängigkeiten installieren**
 
 ```bash
-ng build
+npm install
 ```
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Dieser Befehl installiert die benötigten Pakete. Er wird bei der ersten Einrichtung und bei Änderungen an den Abhängigkeiten benötigt.
 
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+**4. Frontend starten**
 
 ```bash
-ng test
+npx ng serve
 ```
 
-## Running end-to-end tests
+**5. Anwendung im Browser öffnen**
 
-For end-to-end (e2e) testing, run:
+Nach erfolgreichem Start ist das Frontend normalerweise unter folgender Adresse erreichbar:
 
-```bash
-ng e2e
-```
+http://localhost:4200
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Änderungen am Quellcode werden während der Entwicklung automatisch neu geladen.
 
-## Additional Resources
+### Frontend beenden
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Zum Beenden des Entwicklungsservers im Terminal `Strg + C` drücken.
+
+### Hinweis
+
+Für die vollständige Nutzung der Stundenplan-Anwendung muss auch das Backend gestartet und die Verbindung zwischen Frontend und Backend korrekt konfiguriert sein.
