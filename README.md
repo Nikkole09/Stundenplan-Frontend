@@ -1,6 +1,8 @@
 ## Startanleitung für das Frontend (Angular)
 
-Diese Anleitung beschreibt, wie das Frontend des Stundenplan-Projekts lokal eingerichtet und gestartet werden kann.
+Das Frontend unseres Stundenplan-Projekts wurde mit Angular erstellt.
+
+Ziel des Projekts ist die Entwicklung einer Webanwendung zur Stundenplanverwaltung.
 
 ### Voraussetzungen
 
