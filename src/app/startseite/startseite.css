@@ -1,0 +1,63 @@
+
+.startseite {
+  min-height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #fcf3f2;
+  position: relative;
+  overflow: hidden;
+}
+
+.startseite::before {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  background: #e8cbd2;
+  border-radius: 50%;
+  top: -230px;
+  left: -120px;
+}
+
+.startseite::after {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 200px;
+  background: #dce8f2;
+  border-radius: 50%;
+  bottom: -140px;
+  right: -80px;
+}
+
+.willkommen {
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  font-size: clamp(40px, 6vw, 64px);
+  color: #263b57;
+  margin-bottom: 35px;
+  font-weight: 700;
+}
+
+.start-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  padding: 14px 45px;
+  background: #284c68;
+  color: white;
+  border-radius: 30px;
+  font-size: 18px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.start-button:hover {
+  background: #1d3b54;
+}
