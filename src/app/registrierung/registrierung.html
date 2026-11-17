@@ -1,0 +1,48 @@
+<div class="registrierung">
+  <div class="tabs">
+    <a class="tab aktiv">Registrieren</a>
+    <a class="tab" routerLink="/anmeldung">Anmelden</a>
+  </div>
+
+  <p class="eyebrow">Neues Konto</p>
+  <h1>Registrieren</h1>
+  <p class="untertitel">Erstelle deinen Zugang und starte mit deinem Studienplan</p>
+
+  <form autocomplete="off">
+    <label for="name">Name</label>
+    <input id="name" type="text" placeholder="Vorname Nachname" autocomplete="off" />
+
+    <label for="email">E-Mail</label>
+    <input id="email" type="email" placeholder="vorname.nachname@student.htw-berlin.de" autocomplete="off" />
+
+    <div class="label-zeile">
+      <label for="passwort">Passwort</label>
+      <span class="hinweis">mindestens 8 Zeichen</span>
+    </div>
+    <input id="passwort" type="password" placeholder="Dein Passwort" autocomplete="new-password" />
+
+    <label for="studienjahrgang">Studienjahrgang</label>
+    <select id="studienjahrgang">
+      <option value="">Bitte wählen</option>
+      <option>WiSe 2026/27</option>
+      <option>SoSe 2026</option>
+      <option>WiSe 2025/26</option>
+      <option>SoSe 2025</option>
+      <option>WiSe 2024/25</option>
+    </select>
+
+    <label for="studienordnung">Studienordnung</label>
+    <select id="studienordnung">
+      <option value="">Bitte wählen</option>
+      <option>StuPO 2024</option>
+      <option>StuPO 2014</option>
+    </select>
+
+    <button type="submit" class="button">Konto erstellen &nbsp; →</button>
+  </form>
+
+  <hr />
+
+  <p class="schon-konto">Du hast bereits ein Konto? <a routerLink="/anmeldung">Anmelden</a></p>
+  <p class="footer">© 2026/27 Studienplaner</p>
+</div>
