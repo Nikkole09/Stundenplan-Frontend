@@ -1,13 +1,18 @@
+
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-startseite',
-  standalone: true,
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './startseite.html',
   styleUrl: './startseite.css'
 })
 export class Startseite {
 
+  constructor(private router: Router) {}
+
+  starten() {
+    this.router.navigate(['/anmeldung']);
+  }
 }

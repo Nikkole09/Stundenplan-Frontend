@@ -1,63 +1,343 @@
 
+/* Hauptbereich */
+
 .startseite {
-  min-height: 75vh;
+  max-width: 1200px;
+  min-height: 580px;
+  margin: 0 auto;
+  padding: 65px 35px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 70px;
+}
+
+/* Begrüßung */
+
+.begruessung {
+  max-width: 480px;
+}
+
+.untertitel {
   display: flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: #fcf3f2;
-  position: relative;
-  overflow: hidden;
+  gap: 8px;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #888b83;
+  margin-bottom: 24px;
 }
 
-.startseite::before {
-  content: "";
-  position: absolute;
-  width: 350px;
-  height: 350px;
-  background: #e8cbd2;
-  border-radius: 50%;
-  top: -230px;
-  left: -120px;
-}
-
-.startseite::after {
-  content: "";
-  position: absolute;
-  width: 450px;
-  height: 200px;
-  background: #dce8f2;
-  border-radius: 50%;
-  bottom: -140px;
-  right: -80px;
-}
-
-.willkommen {
-  position: relative;
-  z-index: 1;
+.punkt {
+  width: 6px;
+  height: 6px;
+  background-color: #54c500;
 }
 
 h1 {
-  font-size: clamp(40px, 6vw, 64px);
-  color: #263b57;
-  margin-bottom: 35px;
-  font-weight: 700;
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 78px;
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: -2px;
+  color: #1a2012;
+  margin: 0 0 20px;
+}
+
+.fragezeichen {
+  color: #294000;
+}
+
+.beschreibung {
+  max-width: 400px;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #55594f;
+  margin-bottom: 32px;
 }
 
 .start-button {
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
-  gap: 18px;
-  padding: 14px 45px;
-  background: #284c68;
+  gap: 25px;
+
+  padding: 14px 24px;
+  background-color: #263b00;
   color: white;
-  border-radius: 30px;
-  font-size: 18px;
-  text-decoration: none;
-  transition: background 0.2s;
+  border: none;
+  border-radius: 2px;
+
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .start-button:hover {
-  background: #1d3b54;
+  background-color: #3b5800;
+}
+
+.start-button span {
+  font-size: 20px;
+}
+
+.hinweis {
+  margin-top: 25px;
+  color: #999c95;
+  font-size: 12px;
+}
+
+/* Dunkelgrünes Rechteck */
+
+.vorschau {
+  min-height: 420px;
+  padding: 30px;
+  background-color: #213500;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+
+  background-size: 40px 40px;
+}
+
+/* Weiße Karte */
+
+.vorschau-karte {
+  width: 100%;
+  max-width: 380px;
+  background-color: white;
+  padding: 24px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+}
+
+.karte-kopf {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: #888c83;
+  letter-spacing: 1px;
+
+  padding-bottom: 18px;
+  border-bottom: 1px solid #deded8;
+}
+
+.karte-label {
+  border: 1px solid #cbd3bd;
+  padding: 5px;
+  color: #304900;
+}
+
+.karte-inhalt {
+  padding-top: 20px;
+}
+
+.leistung {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.leistung-zahl {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 65px;
+  color: #172008;
+}
+
+.leistung-gesamt {
+  font-size: 11px;
+  color: #888c83;
+}
+
+.leistung-text {
+  margin: 0 0 15px;
+  font-size: 11px;
+  color: #777b70;
+}
+
+.fortschritt {
+  height: 4px;
+  background-color: #deded8;
+  margin-bottom: 25px;
+}
+
+.fortschritt-balken {
+  width: 30.56%;
+  height: 100%;
+  background-color: #65bd00;
+}
+
+/* Werte in der Karte */
+
+.karte-spalten {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid #deded8;
+  border-bottom: 1px solid #deded8;
+}
+
+.karte-spalten div {
+  padding: 15px 8px;
+  border-right: 1px solid #deded8;
+}
+
+.karte-spalten div:last-child {
+  border-right: none;
+}
+
+.spalten-titel {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: #999c95;
+}
+
+.karte-spalten span {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 24px;
+}
+
+/* Modul-Beispiele */
+
+.modul-beispiele {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 18px;
+}
+
+.modul-beispiele span {
+  border: 1px solid #d6d8d0;
+  padding: 5px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 8px;
+  color: #777b70;
+}
+
+.modul-beispiele span:first-child {
+  background-color: #263b00;
+  color: white;
+}
+
+.karte-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28px;
+  padding-top: 15px;
+  border-top: 1px solid #deded8;
+
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  color: #999c95;
+}
+
+.karte-footer strong {
+  font-family: Arial, sans-serif;
+  font-size: 23px;
+  color: #31ae00;
+}
+
+/* Drei Informationsfelder */
+
+.funktionen {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  padding: 0 max(35px, calc((100vw - 1200px) / 2));
+  border-top: 1px solid #ddddda;
+  border-bottom: 1px solid #ddddda;
+}
+
+.funktion {
+  padding: 35px 28px;
+  border-right: 1px solid #ddddda;
+}
+
+.funktion:last-child {
+  border-right: none;
+}
+
+.nummer {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #999c95;
+}
+
+.funktion h2 {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: 26px;
+  font-weight: 400;
+  margin: 15px 0 10px;
+}
+
+.funktion p {
+  font-size: 12px;
+  color: #777b70;
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+
+  .startseite {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 55px 25px;
+    gap: 45px;
+  }
+
+  h1 {
+    font-size: 60px;
+  }
+
+  .funktionen {
+    grid-template-columns: 1fr;
+    padding: 0 25px;
+  }
+
+  .funktion {
+    border-right: none;
+    border-bottom: 1px solid #ddddda;
+    padding: 28px 0;
+  }
+
+  .funktion:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 480px) {
+
+  h1 {
+    font-size: 52px;
+  }
+
+  .vorschau {
+    padding: 16px;
+    min-height: 350px;
+  }
+
+  .vorschau-karte {
+    padding: 16px;
+  }
 }
