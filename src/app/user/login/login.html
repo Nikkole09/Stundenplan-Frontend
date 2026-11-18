@@ -111,10 +111,15 @@
 
       </div>
 
-      <!-- Passwort vergessen -->
-      <p class="forgot-password">
-        Passwort vergessen?
-      </p>
+      
+<!-- Passwort vergessen -->
+<a
+  class="forgot-password"
+  routerLink="/passwort-zuruecksetzen"
+>
+  Passwort vergessen?
+</a>
+
 
       <!-- Fehlermeldung -->
       @if (errorMessage) {
@@ -135,13 +140,14 @@
 
     </form>
 
-    <!-- Registrierung -->
-    <div class="register-link">
-      Noch kein Konto?
-      <a routerLink="/registrierung">
-        Registrieren (nur Studierende)
-      </a>
-    </div>
+    
+<!-- Registrierung -->
+<div class="register-link">
+  <a routerLink="/registrierung">
+    Noch kein Konto? Registrieren (nur Studierende)
+  </a>
+</div>
+
 
   </div>
 
