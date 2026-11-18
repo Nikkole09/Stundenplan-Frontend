@@ -117,3 +117,57 @@ hr {
   letter-spacing: 1px;
   margin-top: 25px;
 }
+
+.fehler {
+  background: #ffe5e5;
+  color: #b00000;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.erfolg {
+  background: #e5f5e0;
+  color: #2f4a00;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.fehler-input {
+  border: 2px solid #b00000 !important;
+  background: #fff5f5;
+}
+
+.gueltig-input {
+  border: 2px solid #2f7a00 !important;
+  background: #f0fff0;
+}
+
+.feld-fehler {
+  color: #b00000;
+  font-size: 12px;
+  margin: 6px 0 0 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.passwort-feld {
+  position: relative;
+}
+
+.passwort-feld input {
+  padding-right: 48px;
+}
+
+.auge-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+}
