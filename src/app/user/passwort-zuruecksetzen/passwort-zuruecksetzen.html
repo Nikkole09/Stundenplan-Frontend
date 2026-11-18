@@ -1,1 +1,39 @@
-<p>passwort-zuruecksetzen works!</p>
+
+<main class="reset-page">
+
+  <div class="reset-container">
+
+    <h1>Passwort zurücksetzen</h1>
+
+    <form [formGroup]="passwortForm">
+
+      <label for="email">HTW-EMAIL</label>
+
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="vorname.nachname@student.htw-berlin.de"
+      >
+
+      @if (
+        passwortForm.get('email')?.invalid &&
+        passwortForm.get('email')?.touched
+      ) {
+        <p class="error">
+          Bitte gib eine gültige HTW-E-Mail ein.
+        </p>
+      }
+
+      <button
+        type="button"
+        [disabled]="passwortForm.invalid"
+      >
+        Zurücksetzen
+      </button>
+
+    </form>
+
+  </div>
+
+</main>
