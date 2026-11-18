@@ -155,12 +155,16 @@ h1 {
   cursor: pointer;
 }
 
+
 .forgot-password {
+  display: block;
   text-align: right;
   color: #555555;
   font-size: 13px;
   margin: -9px 0 27px;
+  text-decoration: none;
 }
+
 
 /* Anmelden-Button */
 
