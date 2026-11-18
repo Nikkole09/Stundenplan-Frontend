@@ -16,7 +16,6 @@ export class Registrierung {
   email = '';
   passwort = '';
   studienjahrgang = '';
-  studienordnung = '';
   fehlerName = '';
   fehlerEmail = '';
   fehlerPasswort = '';
@@ -33,6 +32,15 @@ export class Registrierung {
   passwortUmschalten() {
     this.passwortSichtbar = !this.passwortSichtbar;
   }
+
+  studienordnungIdAusJahrgang() {
+    const neueOrdnung = ['WiSe 2026/27', 'WiSe 2025/26', 'WiSe 2024/25'];
+    if (neueOrdnung.includes(this.studienjahrgang)) {
+      return 1;
+    }
+    return 2;
+  }
+
 
   // Prüft den Namen sofort beim Tippen.
   pruefeName() {
@@ -103,12 +111,12 @@ export class Registrierung {
     const daten = {
       name: this.name,
       email: this.email,
-      passwort: this.passwort,
+      password: this.passwort,
       studienjahrgang: this.studienjahrgang,
-      studienordnung: this.studienordnung,
+      studienordnung_id: this.studienordnungIdAusJahrgang(),
     };
 
-    this.http.post('http://localhost:8080/registrierung', daten).subscribe({
+    this.http.post('http://localhost:8080/api/registrierung', daten).subscribe({
       next: () => {
         this.erfolg = 'Bitte HTW-Mail prüfen!';
       },
