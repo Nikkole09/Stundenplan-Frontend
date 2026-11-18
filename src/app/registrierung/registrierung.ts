@@ -64,7 +64,7 @@ export class Registrierung {
       return;
     }
     // Prüft, ob die E-Mail eine echte HTW-Mail ist.
-    const htwMailMuster = /^[a-zäöü-]+\.[a-zäöü-]+@(student\.htw-berlin\.de|htw-berlin\.de)$/;
+    const htwMailMuster = /^[a-zäöü-]+\.[a-zäöü-]+@student\.htw-berlin\.de$/;
     if (!htwMailMuster.test(this.email.toLowerCase())) {
       this.fehlerEmail = 'Bitte überprüfe deine Email Eingabe.';
       return;
@@ -116,7 +116,7 @@ export class Registrierung {
       studienordnung_id: this.studienordnungIdAusJahrgang(),
     };
 
-    this.http.post('http://localhost:8080/api/registrierung', daten).subscribe({
+    this.http.post('http://localhost:8080/api/auth/register', daten).subscribe({
       next: () => {
         this.erfolg = 'Bitte HTW-Mail prüfen!';
       },
