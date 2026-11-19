@@ -23,7 +23,27 @@ export class Dashboard implements OnInit {
   loading = true;
   errorMessage = '';
 
+  //Test daten, um Frontend laufen zu lassen
   ngOnInit(): void {
+  this.dashboard = {
+    user: {
+      id: 1,
+      name: 'Test Studentin',
+      email: 'test@htw-berlin.de',
+      profilbildUrl: null
+    },
+    showWelcomeBox: true,
+    completedEcts: 0,
+    totalEcts: 180,
+    weightedAverage: null,
+    semesters: []
+  };
+
+  this.loading = false;
+}
+
+//werden Kommentiert, um erst mit Testdaten zu arbeiten, bis die Registrierung und das Login fertig sind (wegen echte API Daten)
+  /*ngOnInit(): void {
     this.dashboardApi.getDashboard().subscribe({
       next: (data) => {
         this.dashboard = data;
@@ -34,7 +54,7 @@ export class Dashboard implements OnInit {
         this.loading = false;
       }
     });
-  }
+  }*/
 
   finishOnboardingAndNavigate(path: string): void {
     this.dashboardApi.finishOnboarding().subscribe({
