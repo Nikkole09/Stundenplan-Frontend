@@ -1,0 +1,23 @@
+<section class="welcome-box" aria-labelledby="welcome-title">
+  <!-- Kleine Überschrift im Editorial-Stil. -->
+  <p class="eyebrow">Willkommen</p>
+
+  <!-- Hauptüberschrift der Box. -->
+  <h2 id="welcome-title">Dein Studienplan auf einen Blick</h2>
+
+  <!-- Kurze Erklärung für die Studentin. -->
+  <p>Beginne mit deinen Modulen oder plane dein nächstes Semester.</p>
+
+  <!-- Beide Direkteinstiege liegen in einer eigenen Button-Gruppe. -->
+  <div class="welcome-actions">
+    <!-- Das Event wird an die TypeScript-Komponente weitergegeben. -->
+    <button type="button" (click)="startModules.emit()">
+      Module eintragen
+    </button>
+
+    <!-- Der zweite Button verwendet die alternative Darstellung. -->
+    <button type="button" class="secondary" (click)="startPlan.emit()">
+      Semester planen
+    </button>
+  </div>
+</section>
