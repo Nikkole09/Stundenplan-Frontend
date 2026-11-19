@@ -1,0 +1,31 @@
+<main class="dashboard-page">
+  @if (loading) {
+    <p class="state-message">Dashboard wird geladen ...</p>
+  } @else if (errorMessage) {
+    <p class="state-message error">{{ errorMessage }}</p>
+  } @else if (dashboard) {
+    <header class="dashboard-header">
+      <div>
+        <p class="eyebrow">Studienplaner</p>
+        <h1>Übersicht</h1>
+      </div>
+      <div class="profile">
+        <span class="profile-image">
+          {{ dashboard.user.name.charAt(0).toUpperCase() }}
+        </span>
+        <span>{{ dashboard.user.name }}</span>
+      </div>
+    </header>
+
+    @if (dashboard.showWelcomeBox) {
+      <app-welcome-box
+        (startModules)="finishOnboardingAndNavigate('/module')"
+        (startPlan)="finishOnboardingAndNavigate('/semesterplan')" />
+    }
+
+    <section class="placeholder-section">
+      <h2>Dein Studienfortschritt</h2>
+      <p>Die Kennzahlen und Semester kommen in den nächsten Tasks.</p>
+    </section>
+  }
+</main>
