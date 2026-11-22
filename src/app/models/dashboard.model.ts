@@ -12,6 +12,10 @@ export interface DashboardUser {
 // Gesamte Antwort von GET /api/dashboard.
 export interface DashboardResponse {
   user: DashboardUser;
+   // Studieninformationen
+  studienordnung: string | null;
+  aktuellesSemester: string | null;
+
   showWelcomeBox: boolean;
   completedEcts: number | null;
   totalEcts: number | null;
