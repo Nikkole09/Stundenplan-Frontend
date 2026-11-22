@@ -1,19 +1,57 @@
+
+<app-dashboard-header
+  [user]="dashboard?.user ?? null">
+</app-dashboard-header>
+
 <main class="dashboard-page">
+
   @if (loading) {
-    <p class="state-message">Dashboard wird geladen ...</p>
+    <p>Dashboard wird geladen ...</p>
   } @else if (errorMessage) {
-    <p class="state-message error">{{ errorMessage }}</p>
+    <p class="error">{{ errorMessage }}</p>
   } @else if (dashboard) {
-  
-    @if (dashboard.showWelcomeBox) {
+
+    <!-- Kopfbereich -->
+    
+<section class="dashboard-intro">
+
+  <div class="intro-text">
+
+    <p class="eyebrow">DEIN STUDIUM</p>
+
+    <h1>Übersicht</h1>
+
+    <p class="study-details">
+
+      @if (dashboard.studienordnung) {
+        <span>{{ dashboard.studienordnung }}</span>
+      }
+
+      
+
+      @if (dashboard.aktuellesSemester) {
+        <span>{{ dashboard.aktuellesSemester }}</span>
+      }
+
+    </p>
+
+  </div>
+
+  <a class="semester-link" routerLink="/semesterplan">
+    Semesterplan <span>→</span>
+  </a>
+
+</section>
+
+<div class="intro-divider"></div>
+
+
+    <!-- Willkommens-Box nur beim ersten Login -->
+    @if (dashboard.showWelcomeBox && welcomeVisible) {
       <app-welcome-box
-        (startModules)="finishOnboardingAndNavigate('/module')"
-        (startPlan)="finishOnboardingAndNavigate('/semesterplan')" />
+        (start)="startWelcome()">
+      </app-welcome-box>
     }
 
-    <section class="placeholder-section">
-      <h2>Dein Studienfortschritt</h2>
-      <p>Die Kennzahlen und Semester kommen in den nächsten Tasks.</p>
-    </section>
   }
 </main>
