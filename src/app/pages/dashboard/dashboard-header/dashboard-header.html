@@ -1,0 +1,113 @@
+
+<header class="dashboard-header">
+  <div class="header-inner">
+
+    <!-- Links: Studienplaner und HTW -->
+    <div class="brand-container">
+      <a routerLink="/uebersicht" class="brand">
+        <span class="brand-name">
+          studienplaner.
+        </span>
+      </a>
+
+      <div class="brand-divider"></div>
+
+      <div class="fiw-brand">
+        <span class="fiw-title">htw</span>
+
+        <span class="fiw-subtitle">
+          HOCHSCHULE FÜR<br>
+          TECHNIK UND WIRTSCHAFT<br>
+          BERLIN
+        </span>
+      </div>
+    </div>
+
+    
+
+<!-- Hauptnavigation -->
+<nav
+  class="main-navigation"
+  aria-label="Hauptnavigation"
+>
+  <!-- Übersicht -->
+  <a
+    routerLink="/uebersicht"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <span
+      class="active-dot"
+      aria-hidden="true"
+    ></span>
+
+    Übersicht
+  </a>
+
+  <!-- Semesterplan -->
+  <a
+    routerLink="/semesterplan"
+    routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }"
+  >
+    <span
+      class="active-dot"
+      aria-hidden="true"
+    ></span>
+
+    Semesterplan
+  </a>
+</nav>
+
+
+
+    <!-- Rechts: Profil und Dropdown -->
+    <div class="profile-container">
+      <button
+        type="button"
+        class="profile-button"
+        [attr.aria-expanded]="profileMenuOpen"
+        (click)="toggleProfileMenu()"
+      >
+        @if (user?.profilbildUrl) {
+          <img
+            class="profile-image"
+            [src]="user!.profilbildUrl!"
+            alt="Profilbild"
+          >
+        } @else {
+          <span class="profile-avatar">
+            {{ initials }}
+          </span>
+        }
+
+        <span class="profile-name">
+          {{ user?.name || 'Mein Profil' }}
+        </span>
+
+        <span class="arrow">⌄</span>
+      </button>
+
+      @if (profileMenuOpen) {
+        <div class="profile-dropdown">
+
+          <a
+            routerLink="/profil"
+            (click)="closeProfileMenu()"
+          >
+            Profil anzeigen
+          </a>
+
+          <button
+            type="button"
+            (click)="logout()"
+          >
+            Abmelden
+          </button>
+
+        </div>
+      }
+    </div>
+
+  </div>
+</header>
