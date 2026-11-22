@@ -1,21 +1,22 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Router } from '@angular/router';
 import { DashboardApiService } from './../../core/services/dashboard-api.service';
 import { DashboardResponse } from './../../models/dashboard.model';
 import { WelcomeBox } from './welcome-box/welcome-box';
+import { DashboardHeader } from './dashboard-header/dashboard-header';
+import { Router, RouterLink } from '@angular/router';
 
 /**
  * Hauptseite nach dem Login.
- 
  */
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [WelcomeBox],
+  imports: [WelcomeBox, DashboardHeader, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.css'
 })
 export class Dashboard implements OnInit {
+
   private readonly dashboardApi = inject(DashboardApiService);
   private readonly router = inject(Router);
 
@@ -23,27 +24,35 @@ export class Dashboard implements OnInit {
   loading = true;
   errorMessage = '';
 
-  //Test daten, um Frontend laufen zu lassen
+  // Steuert, ob die Welcome Box angezeigt wird
+  welcomeVisible = true;
+
+  // Testdaten, um das Frontend laufen zu lassen
   ngOnInit(): void {
-  this.dashboard = {
-    user: {
-      id: 1,
-      name: 'Test Studentin',
-      email: 'test@htw-berlin.de',
-      profilbildUrl: null
-    },
-    showWelcomeBox: true,
-    completedEcts: 0,
-    totalEcts: 180,
-    weightedAverage: null,
-    semesters: []
-  };
+    this.dashboard = {
+  user: {
+    id: 1,
+    name: 'Test Studentin',
+    email: 'test@htw-berlin.de',
+    profilbildUrl: null
+  },
 
-  this.loading = false;
-}
+  studienordnung: null,
+  aktuellesSemester: null,
 
-//werden Kommentiert, um erst mit Testdaten zu arbeiten, bis die Registrierung und das Login fertig sind (wegen echte API Daten)
-  /*ngOnInit(): void {
+  showWelcomeBox: true,
+  completedEcts: 0,
+  totalEcts: 180,
+  weightedAverage: null,
+  semesters: []
+};
+
+    this.loading = false;
+  }
+
+  // Echte API-Daten werden später wieder aktiviert
+  /*
+  ngOnInit(): void {
     this.dashboardApi.getDashboard().subscribe({
       next: (data) => {
         this.dashboard = data;
@@ -54,7 +63,8 @@ export class Dashboard implements OnInit {
         this.loading = false;
       }
     });
-  }*/
+  }
+  */
 
   finishOnboardingAndNavigate(path: string): void {
     this.dashboardApi.finishOnboarding().subscribe({
@@ -62,6 +72,40 @@ export class Dashboard implements OnInit {
       error: () => {
         this.errorMessage = 'Die Aktion konnte nicht gespeichert werden.';
       }
+    });
+  }
+
+  // Wird aufgerufen, wenn man auf "Los geht's" klickt
+  startWelcome(): void {
+
+    // Welcome Box sofort ausblenden
+    this.welcomeVisible = false;
+
+    this.dashboardApi.finishOnboarding().subscribe({
+
+      next: () => {
+
+        if (this.dashboard) {
+          this.dashboard = {
+            ...this.dashboard,
+            showWelcomeBox: false
+          };
+        }
+
+        document
+          .getElementById('deine-module')
+          ?.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+
+      },
+
+      error: () => {
+        this.errorMessage =
+          'Der Einstieg konnte nicht gespeichert werden.';
+      }
+
     });
   }
 }
