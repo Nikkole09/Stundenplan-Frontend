@@ -1,10 +1,11 @@
 
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { Header } from '../header/header';
 
 @Component({
   selector: 'app-startseite',
-  imports: [],
+  imports: [Header],
   templateUrl: './startseite.html',
   styleUrl: './startseite.css'
 })
