@@ -1,50 +1,136 @@
-<!-- Beispielwerte für die Statistik pro Semester. -->
-<table>
-    <caption>Statistik nach Semester – Beispieldaten</caption>
-    <thead>
-      <tr>
-        <th scope="col">Semester</th>
-        <th scope="col">Fortschritt</th>
-        <th scope="col">Bestandene Kurse</th>
-        <th scope="col">Personen</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>1</td>
-        <td>82 %</td>
-        <td>85 %</td>
-        <td>68</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>77 %</td>
-        <td>70 %</td>
-        <td>56</td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td>44 %</td>
-        <td>48 %</td>
-        <td>38</td>
-      </tr>
-    </tbody>
-  </table>
-<section>
-    <h1>Statistik</h1>
+<section class="statistik">
+    <!-- Überschrift der Seite. -->
+    <header class="seitenkopf">
+      <p class="eyebrow">Lehre</p>
+      <h1>Statistik</h1>
+      <p class="untertitel">Anonymisierte Auswertung · HTW Berlin</p>
+    </header>
   
-    <!-- Hinweis, dass nur anonyme Daten angezeigt werden. -->
-    <p>Anonym: keine Namen, keine Einzelnoten</p>
+    <p class="anonym-hinweis">
+      Anonym: keine Namen, keine Einzelnoten.
+    </p>
   
-    <!-- Beispiel für die eigene Kohorte. -->
-    <label for="kohorte">Kohorte</label>
-    <select id="kohorte">
-      <option value="wise20">WiSe 20</option>
-    </select>
+    <!-- Die Kohorte und alle Zahlen sind zunächst Beispieldaten. -->
+    <div class="auswahl">
+      <div>
+        <label for="kohorte">Kohorte</label>
+        <select id="kohorte">
+          <option value="ws2526">WS 25/26</option>
+        </select>
+      </div>
+      <span class="kleiner-text">Beispieldaten · WS 25/26</span>
+    </div>
   
-    <!-- Der Wert ist zunächst ein Beispiel aus dem Prototyp. -->
-    <div>
-      <h2>Durchschnittlicher Studienfortschritt</h2>
-      <p>58 %</p>
+    <div class="uebersicht">
+      <!-- Zeigt den durchschnittlichen Fortschritt der Kohorte. -->
+      <article class="fortschritt-box">
+        <h2>Durchschnittlicher Studienfortschritt</h2>
+        <p class="gesamtwert">58<span>%</span></p>
+  
+        <div class="gesamtbalken" aria-hidden="true">
+          <span></span>
+        </div>
+  
+        <p class="box-hinweis">Über alle Semester der Kohorte WS 25/26</p>
+      </article>
+  
+      <!-- Die Balkenhöhe entspricht dem Prozentwert.
+           Dieselben Werte stehen auch in der Tabelle. -->
+      <article class="diagramm-box">
+        <p class="eyebrow">Semester 1–3</p>
+        <h2>Fortschritt je Semester</h2>
+  
+        <div class="legende">
+          <span><i class="farbe"></i>Fortschritt</span>
+          <span><i class="muster"></i>Bestandene Kurse</span>
+        </div>
+  
+        <div class="diagramm" aria-hidden="true">
+          <div class="balkengruppe">
+            <div class="balkenpaar">
+              <div class="balken farbe" style="height: 40%">
+                <span>40</span>
+              </div>
+              <div class="balken muster" style="height: 34%">
+                <span>34</span>
+              </div>
+            </div>
+            <p>1. Sem.</p>
+          </div>
+  
+          <div class="balkengruppe">
+            <div class="balkenpaar">
+              <div class="balken farbe" style="height: 52%">
+                <span>52</span>
+              </div>
+              <div class="balken muster" style="height: 47%">
+                <span>47</span>
+              </div>
+            </div>
+            <p>2. Sem.</p>
+          </div>
+  
+          <div class="balkengruppe">
+            <div class="balkenpaar">
+              <div class="balken farbe" style="height: 64%">
+                <span>64</span>
+              </div>
+              <div class="balken muster" style="height: 58%">
+                <span>58</span>
+              </div>
+            </div>
+            <p>3. Sem.</p>
+          </div>
+        </div>
+      </article>
+    </div>
+  
+    <!-- Die Tabelle enthält nur zusammengefasste Beispielwerte. -->
+    <div class="tabelle-box">
+      <div class="tabellenkopf">
+        <p class="eyebrow">Kohorte WS 25/26 · Semester 1–3</p>
+        <h2>Semester im Vergleich</h2>
+        <p class="kleiner-text">Werte in Prozent · Personen als Anzahl</p>
+      </div>
+  
+      <div class="tabelle-scroll">
+        <table>
+          <caption class="nur-vorlesbar">
+            Beispielstatistik der Kohorte WS 25/26
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Semester</th>
+              <th scope="col">Fortschritt</th>
+              <th scope="col">Bestandene Kurse</th>
+              <th scope="col">Personen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1. Semester</th>
+              <td>40 %</td>
+              <td>34 %</td>
+              <td>68</td>
+            </tr>
+            <tr>
+              <th scope="row">2. Semester</th>
+              <td>52 %</td>
+              <td>47 %</td>
+              <td>56</td>
+            </tr>
+            <tr>
+              <th scope="row">3. Semester</th>
+              <td>64 %</td>
+              <td>58 %</td>
+              <td>38</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <p class="daten-hinweis">
+        Alle Werte sind Beispieldaten aus dem Design-Prototyp.
+      </p>
     </div>
   </section>

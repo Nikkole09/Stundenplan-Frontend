@@ -1,74 +1,310 @@
-section {
-    max-width: 850px;
-    margin: 32px auto;
-    padding: 24px;
+/* Hintergrund und Schrift passen zur Registrierungsseite. */
+:host {
+    display: block;
+    min-height: 100vh;
+    background: #fcfcf2;
+    color: #1a1a1a;
     font-family: Arial, sans-serif;
-    color: #222;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .statistik {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 40px 60px 80px;
+  }
+  
+  .seitenkopf {
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .eyebrow,
+  .kleiner-text {
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  
+  .eyebrow {
+    margin: 0 0 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+  }
+  
+  h1,
+  h2 {
+    font-family: Georgia, serif;
+    font-weight: 400;
   }
   
   h1 {
-    margin-top: 0;
-  }
-  section > p {
-    padding: 12px;
-    background-color: #f0f4f8;
-    border-radius: 6px;
-  }
-  
-  label {
-    margin-right: 12px;
-    font-weight: bold;
-  }
-  
-  select {
-    padding: 8px 12px;
-    font: inherit;
-  }
-  section > div {
-    margin: 24px 0;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    margin: 0;
+    font-size: clamp(48px, 7vw, 80px);
   }
   
   h2 {
-    margin-top: 0;
-    font-size: 20px;
+    margin: 0;
+    font-size: 28px;
   }
   
-  section > div > p {
-    margin: 0;
-    font-size: 32px;
-    font-weight: bold;
+  .untertitel {
+    color: #777;
+    font-size: 14px;
   }
+  
+  .anonym-hinweis {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-left: 3px solid #2f4a00;
+    background: white;
+    font-size: 14px;
+  }
+  
+  .auswahl {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 24px 0;
+  }
+  
+  label {
+    margin-right: 16px;
+    color: #777;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  select {
+    min-width: 160px;
+    padding: 12px;
+    border: 1px solid #ddd;
+    background: white;
+    color: #1a1a1a;
+    font: inherit;
+  }
+  
+  /* Fortschrittsbox und Diagramm stehen nebeneinander. */
+  .uebersicht {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 20px;
+  }
+  
+  .fortschritt-box {
+    min-height: 340px;
+    padding: 28px;
+    color: white;
+    background-color: #2f4a00;
+    background-image:
+      linear-gradient(#ffffff09 1px, transparent 1px),
+      linear-gradient(90deg, #ffffff09 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  
+  .fortschritt-box h2 {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .gesamtwert {
+    margin: 60px 0 8px;
+    font-family: Georgia, serif;
+    font-size: 96px;
+    line-height: 1;
+  }
+  
+  .gesamtwert span {
+    margin-left: 8px;
+    font-size: 24px;
+  }
+  
+  .gesamtbalken {
+    height: 4px;
+    background: #ffffff40;
+  }
+  
+  .gesamtbalken span {
+    display: block;
+    width: 58%;
+    height: 100%;
+    background: white;
+  }
+  
+  .box-hinweis {
+    margin: 44px 0 0;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+  
+  .diagramm-box,
+  .tabelle-box {
+    border: 1px solid #ddd;
+    background: white;
+  }
+  
+  .diagramm-box {
+    padding: 28px;
+  }
+  
+  .legende {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin: 16px 0;
+    color: #666;
+    font-size: 12px;
+  }
+  
+  .legende span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .legende i {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Farbe und Schraffur unterscheiden die beiden Werte. */
+  .farbe {
+    background: #2f4a00;
+  }
+  
+  .muster {
+    border: 1px solid #2f4a00;
+    background: repeating-linear-gradient(
+      135deg,
+      white 0 3px,
+      #2f4a00 3px 5px
+    );
+  }
+  
+  .diagramm {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 16px;
+  }
+  
+  .balkengruppe {
+    width: 28%;
+    text-align: center;
+  }
+  
+  .balkenpaar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 8px;
+    height: 170px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .balken {
+    position: relative;
+    width: 30px;
+  }
+  
+  .balken > span {
+    position: absolute;
+    top: -20px;
+    left: 0;
+    width: 100%;
+    color: #666;
+    font-size: 11px;
+  }
+  
+  .balkengruppe > p {
+    color: #777;
+    font-size: 11px;
+  }
+  
+  .tabelle-box {
+    margin-top: 20px;
+  }
+  
+  .tabellenkopf {
+    padding: 24px;
+  }
+  
+  .tabelle-scroll {
+    overflow-x: auto;
+  }
+  
   table {
     width: 100%;
     border-collapse: collapse;
   }
   
-  caption {
-    margin-bottom: 12px;
-    text-align: left;
-  }
-  
   th,
   td {
-    padding: 12px;
-    border: 1px solid #ccc;
+    padding: 18px 24px;
+    border-bottom: 1px solid #ddd;
     text-align: left;
+    white-space: nowrap;
   }
   
-  th {
-    background-color: #f0f4f8;
+  thead th {
+    background: #f4f4ed;
+    color: #666;
+    font-size: 11px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
   }
-  @media (max-width: 600px) {
-    section {
-      margin: 16px auto;
-      padding: 12px;
+  
+  tbody th {
+    font-size: 14px;
+    font-weight: 400;
+  }
+  
+  td {
+    color: #555;
+    font-size: 14px;
+  }
+  
+  .daten-hinweis {
+    padding: 16px 24px;
+    margin: 0;
+    color: #777;
+    font-size: 11px;
+  }
+  
+  /* Die Tabellenbeschreibung bleibt für Vorleseprogramme erreichbar. */
+  .nur-vorlesbar {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+  
+  /* Auf kleinen Bildschirmen stehen die Boxen untereinander. */
+  @media (max-width: 800px) {
+    .statistik {
+      padding: 24px 16px 48px;
+    }
+  
+    .uebersicht {
+      grid-template-columns: 1fr;
+    }
+  
+    .auswahl {
+      align-items: flex-start;
+      flex-direction: column;
     }
   
     th,
     td {
-      padding: 6px;
+      padding: 14px;
     }
   }
