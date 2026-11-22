@@ -1,10 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
-
 /**
- * Zeigt die Direkteinstiege beim ersten Dashboard-Aufruf.
- *
- * Die Komponente zeigt nur die Willkommens-Box.
- * Die Navigation bleibt in der Dashboard-Seite.
+ * Zeigt den Einstieg beim ersten Login und meldet Klicks an das Dashboard.
+ * Die eigentlichen Werte kommen aus den vorhandenen Services bzw. der API.
  */
 @Component({
   selector: 'app-welcome-box',
@@ -12,10 +9,8 @@ import { Component, EventEmitter, Output } from '@angular/core';
   templateUrl: './welcome-box.html',
   styleUrl: './welcome-box.css'
 })
-export class WelcomeBox{
-  // Meldet dem Dashboard den Klick auf „Module eintragen“.
-  @Output() startModules = new EventEmitter<void>();
+export class WelcomeBox {
 
-  // Meldet dem Dashboard den Klick auf „Semester planen“.
-  @Output() startPlan = new EventEmitter<void>();
+  @Output() start = new EventEmitter<void>();
+
 }
