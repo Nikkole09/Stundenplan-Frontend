@@ -39,7 +39,7 @@ export class Login {
         Validators.required,
         Validators.email,
         Validators.pattern(
-          /^[^\s@]+@(student\.)?htw-berlin\.de$/i
+          /^[^\s@]+@student\.htw-berlin\.de$/i
         )
       ]],
       password: ['', [
@@ -47,11 +47,11 @@ export class Login {
         Validators.minLength(8)
       ]]
     });
-  
-      this.loginForm.valueChanges.subscribe(() => {
+
+    this.loginForm.valueChanges.subscribe(() => {
       this.errorMessage = '';
     });
-  } 
+  }
 
   onSubmit(): void {
     this.errorMessage = '';
