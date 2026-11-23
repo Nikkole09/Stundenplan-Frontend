@@ -1,0 +1,154 @@
+
+<div class="login-page">
+
+  <div class="login-container">
+
+    <!-- Navigation -->
+    <nav class="tabs">
+      <a routerLink="/registrierung">Registrieren</a>
+      <span class="active">Anmelden</span>
+    </nav>
+
+    <!-- Überschrift -->
+    <p class="small-heading">WILLKOMMEN ZURÜCK</p>
+
+    <h1>Anmelden.</h1>
+
+    <p class="subtitle">
+      Melde dich an, um deinen Studienplan zu öffnen.
+    </p>
+
+    <!-- Login-Formular -->
+    <form
+      [formGroup]="loginForm"
+      (ngSubmit)="onSubmit()"
+      novalidate
+    >
+
+      <!-- E-Mail -->
+      <div class="form-group">
+
+        <label for="email">E-MAIL</label>
+
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          placeholder="vorname.nachname@student.htw-berlin.de"
+          autocomplete="username"
+        >
+
+        @if (
+          loginForm.get('email')?.invalid &&
+          loginForm.get('email')?.touched
+        ) {
+          <p class="error">
+            Bitte gib eine gültige HTW-E-Mail ein.
+          </p>
+        }
+
+      </div>
+
+      <!-- Passwort -->
+      <div class="form-group">
+
+        <div class="password-heading">
+          <label for="password">PASSWORT</label>
+          <span>mindestens 8 Zeichen</span>
+        </div>
+
+        <div class="password-field">
+
+          <input
+            id="password"
+            [type]="hidePassword ? 'password' : 'text'"
+            formControlName="password"
+            placeholder="Dein Passwort"
+            autocomplete="current-password"
+          >
+
+          <button
+            type="button"
+            class="eye-button"
+            (click)="hidePassword = !hidePassword"
+            [attr.aria-label]="hidePassword
+              ? 'Passwort anzeigen'
+              : 'Passwort verbergen'"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.7"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              aria-hidden="true"
+            >
+              <path
+                d="M2 12s3.5-6 10-6
+                10 6 10 6-3.5 6-10 6
+                S2 12 2 12Z"
+              />
+              <circle cx="12" cy="12" r="3"/>
+              @if (!hidePassword) {
+                <path d="M3 21L21 3"/>
+              }
+            </svg>
+          </button>
+
+        </div>
+
+        @if (
+          loginForm.get('password')?.invalid &&
+          loginForm.get('password')?.touched
+        ) {
+          <p class="error">
+            Das Passwort muss mindestens 8 Zeichen enthalten.
+          </p>
+        }
+
+      </div>
+
+      
+<!-- Passwort vergessen -->
+<a
+  class="forgot-password"
+  routerLink="/passwort-zuruecksetzen"
+>
+  Passwort vergessen?
+</a>
+
+
+      <!-- Fehlermeldung -->
+      @if (errorMessage) {
+        <p class="login-error" role="alert">
+          {{ errorMessage }}
+        </p>
+      }
+
+      <!-- Button -->
+      <button
+        type="submit"
+        class="login-button"
+        [disabled]="isLoading"
+      >
+        {{ isLoading ? 'Anmeldung läuft...' : 'Anmelden' }}
+        <span aria-hidden="true">→</span>
+      </button>
+
+    </form>
+
+    
+<!-- Registrierung -->
+<div class="register-link">
+  <a routerLink="/registrierung">
+    Noch kein Konto? Registrieren (nur Studierende)
+  </a>
+</div>
+
+
+  </div>
+
+</div>
