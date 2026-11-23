@@ -1,10 +1,10 @@
 .registrierung {
   width: 100%;
-  max-width: none;
+  max-width: 560px;
   min-height: 100vh;
-  margin: 0;
-  padding: 40px 60px 200px 60px;
-  background: #fcfcf2;
+  margin: 0 auto;
+  padding: 40px 20px 60px 20px;
+  background: #ffffff;
   font-family: Arial, sans-serif;
   color: #1a1a1a;
   box-sizing: border-box;

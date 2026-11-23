@@ -17,7 +17,7 @@
     <p class="feld-fehler" *ngIf="fehlerName">{{ fehlerName }}</p>
 
     <label for="email">E-Mail</label>
-    <input id="email" type="email" placeholder="Max.Mustermann@Student.HTW-Berlin.de" autocomplete="off" [(ngModel)]="email" name="email" (ngModelChange)="pruefeEmail()" [class.fehler-input]="fehlerEmail" [class.gueltig-input]="emailGueltig" />
+    <input id="email" type="email" placeholder="vorname.nachname@student.htw-berlin.de" autocomplete="off" [(ngModel)]="email" name="email" (ngModelChange)="pruefeEmail()" [class.fehler-input]="fehlerEmail" [class.gueltig-input]="emailGueltig" />
     <p class="feld-fehler" *ngIf="fehlerEmail">{{ fehlerEmail }}</p>
 
     <div class="label-zeile">
