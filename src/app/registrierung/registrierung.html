@@ -1,0 +1,55 @@
+<div class="registrierung">
+  <div class="tabs">
+    <a class="tab aktiv">Registrieren</a>
+    <a class="tab" routerLink="/anmeldung">Anmelden</a>
+  </div>
+
+  <p class="eyebrow">Neues Konto</p>
+  <h1>Registrieren</h1>
+  <p class="untertitel">Erstelle deinen Zugang und starte mit deinem Studienplan</p>
+
+  <form autocomplete="off" (ngSubmit)="registrieren()">
+    <p class="erfolg" *ngIf="erfolg">{{ erfolg }}</p>
+    <p class="fehler" *ngIf="fehlerAllgemein">{{ fehlerAllgemein }}</p>
+
+    <label for="name">Name</label>
+    <input id="name" type="text" placeholder="Vorname Nachname" autocomplete="off" [(ngModel)]="name" name="name" (ngModelChange)="pruefeName()" [class.fehler-input]="fehlerName" [class.gueltig-input]="nameGueltig" />
+    <p class="feld-fehler" *ngIf="fehlerName">{{ fehlerName }}</p>
+
+    <label for="email">E-Mail</label>
+    <input id="email" type="email" placeholder="vorname.nachname@student.htw-berlin.de" autocomplete="off" [(ngModel)]="email" name="email" (ngModelChange)="pruefeEmail()" [class.fehler-input]="fehlerEmail" [class.gueltig-input]="emailGueltig" />
+    <p class="feld-fehler" *ngIf="fehlerEmail">{{ fehlerEmail }}</p>
+
+    <div class="label-zeile">
+      <label for="passwort">Passwort</label>
+      <span class="hinweis">mindestens 8 Zeichen</span>
+    </div>
+    <div class="passwort-feld">
+      <input id="passwort" [type]="passwortSichtbar ? 'text' : 'password'" placeholder="Dein Passwort" autocomplete="new-password" [(ngModel)]="passwort" name="passwort" (ngModelChange)="pruefePasswort()" [class.fehler-input]="fehlerPasswort" [class.gueltig-input]="passwortGueltig" />
+      <button type="button" class="auge-button" (click)="passwortUmschalten()" [attr.aria-label]="passwortSichtbar ? 'Passwort verbergen' : 'Passwort anzeigen'">
+        {{ passwortSichtbar ? '🙈' : '👁️' }}
+      </button>
+    </div>
+    <p class="feld-fehler" *ngIf="fehlerPasswort">{{ fehlerPasswort }}</p>
+
+    <label for="studienjahrgang">Studienjahrgang</label>
+    <select id="studienjahrgang" [(ngModel)]="studienjahrgang" name="studienjahrgang">
+      <option value="">Bitte wählen</option>
+      <option>WiSe 2026/27</option>
+      <option>WiSe 2025/26</option>
+      <option>WiSe 2024/25</option>
+      <option>WiSe 2023/24</option>
+      <option>WiSe 2022/23</option>
+      <option>WiSe 2021/22</option>
+      <option>WiSe 2020/21</option>
+    </select>
+
+
+    <button type="submit" class="button">Konto erstellen &nbsp; →</button>
+  </form>
+
+  <hr />
+
+  <p class="schon-konto">Du hast bereits ein Konto? <a routerLink="/anmeldung">Anmelden</a></p>
+  <p class="footer">© 2026/27 Studienplaner</p>
+</div>
