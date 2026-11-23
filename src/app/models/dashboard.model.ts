@@ -13,8 +13,8 @@ export interface DashboardUser {
 export interface DashboardResponse {
   user: DashboardUser;
    // Studieninformationen
-  studienordnung: string | null;
-  aktuellesSemester: string | null;
+  studienordnung?: string | null;
+  aktuellesSemester?: string | null;
 
   showWelcomeBox: boolean;
   completedEcts: number | null;
