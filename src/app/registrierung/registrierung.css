@@ -1,0 +1,173 @@
+.registrierung {
+  width: 100%;
+  max-width: 560px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 40px 20px 60px 20px;
+  background: #ffffff;
+  font-family: Arial, sans-serif;
+  color: #1a1a1a;
+  box-sizing: border-box;
+}
+
+.tabs {
+  display: flex;
+  gap: 28px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 40px;
+}
+
+.tab {
+  padding-bottom: 10px;
+  color: #888;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab.aktiv {
+  color: #000;
+  font-weight: 700;
+  border-bottom: 2px solid #000;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  color: #999;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 48px;
+  margin: 10px 0 5px 0;
+  font-family: Georgia, serif;
+}
+
+.untertitel {
+  color: #777;
+  margin-bottom: 30px;
+}
+
+label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 20px 0 8px 0;
+}
+
+.label-zeile {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.hinweis {
+  font-size: 11px;
+  color: #999;
+  letter-spacing: 1px;
+}
+
+input, select {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 15px;
+  box-sizing: border-box;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+.button {
+  width: 100%;
+  margin-top: 28px;
+  padding: 16px;
+  background: #2f4a00;
+  color: white;
+  border: none;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 30px 0 20px 0;
+}
+
+.schon-konto {
+  color: #777;
+  font-size: 14px;
+}
+
+.schon-konto a {
+  color: #000;
+  font-weight: 700;
+}
+
+.footer {
+  text-align: center;
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 1px;
+  margin-top: 25px;
+}
+
+.fehler {
+  background: #ffe5e5;
+  color: #b00000;
+  padding: 12px;
+  font-size: 14px;
+}
+
+.erfolg {
+  background: #e5f5e0;
+  color: #2f4a00;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.fehler-input {
+  border: 2px solid #b00000 !important;
+  background: #fff5f5;
+}
+
+.gueltig-input {
+  border: 2px solid #2f7a00 !important;
+  background: #f0fff0;
+}
+
+.feld-fehler {
+  color: #b00000;
+  font-size: 12px;
+  margin: 6px 0 0 0;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+.passwort-feld {
+  position: relative;
+}
+
+.passwort-feld input {
+  padding-right: 48px;
+}
+
+.auge-button {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+}
