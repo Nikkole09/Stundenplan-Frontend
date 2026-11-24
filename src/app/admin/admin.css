@@ -1,0 +1,221 @@
+/* ==================== Gesamter Admin-Bereich ==================== */
+
+/* Gemeinsamer Container für die Seitenleiste und den Hauptbereich */
+.admin-layout {
+  /* Seitenleiste und Hauptbereich werden nebeneinander angezeigt */
+  display: flex;
+  /* Maximale Breite passend zum restlichen Studienplaner */
+  max-width: 1200px;
+  /* Mindesthöhe, damit auch Bereiche mit wenig Inhalt groß genug sind */
+  min-height: 650px;
+  /* Abstand nach oben und unten, horizontal mittig ausgerichtet */
+  margin: 40px auto;
+  /* Hintergrund, Rahmen und abgerundete Ecken */
+  background-color: #ffffff;
+  border: 1px solid #ddddda;
+  border-radius: 12px;
+  /* Verhindert, dass Inhalte über die abgerundeten Ecken hinausragen */
+  overflow: hidden;
+}
+
+
+/* ==================== Seitliche Navigation ==================== */
+
+.admin-sidebar {
+  /* Feste Breite der Seitenleiste */
+  width: 250px;
+  /* Verhindert, dass die Seitenleiste zusammengedrückt wird */
+  flex-shrink: 0;
+   /* Innenabstand der Seitenleiste */
+  padding: 28px 20px;
+    /* Weißer Hintergrund und Trennlinie zum Hauptbereich */
+  background-color: #ffffff;
+  border-right: 1px solid #ddddda;
+}
+
+/* Überschrift der Seitenleiste */
+.admin-sidebar h2 {
+  margin: 0 0 35px;
+  font-size: 22px;
+  color: #111111;
+}
+
+/* Kleine Überschrift "VERWALTUNG" über den Navigationsbuttons */
+.navigation-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #777777;
+  margin-bottom: 15px;
+}
+
+/* Ordnet die Navigationsbuttons untereinander an */
+.admin-navigation {
+  display: flex;
+  flex-direction: column;
+  /* Abstand zwischen den Buttons */
+  gap: 8px;
+}
+
+
+/* ==================== Navigationsbuttons ==================== */
+
+.admin-navigation button {
+  /* Buttons nutzen die gesamte Breite der Seitenleiste */
+  width: 100%;
+  /* Innenabstand und abgerundete Ecken */
+  padding: 14px 16px;
+  border: none;
+  border-radius: 6px;
+  /* Standardmäßig haben die Buttons keinen eigenen Hintergrund */
+  background-color: transparent;
+  /* Schriftgestaltung passend zum restlichen Studienplaner */
+  color: #4c4c4c;
+  font-family: inherit;
+  font-size: 15px;
+  text-align: left;
+  /* Mauszeiger zeigt an, dass der Button anklickbar ist */
+  cursor: pointer;
+  /* Hintergrundfarbe ändert sich mit einem weichen Übergang */
+  transition: background-color 0.2s;
+}
+
+/* Hintergrundfarbe, wenn man mit der Maus über einen Button fährt */
+.admin-navigation button:hover {
+  background-color: #f0f0ed;
+}
+
+/* Der aktuell ausgewählte Bereich wird grün hervorgehoben.
+   Die Klasse "active" wird abhängig vom ausgewählten Bereich in der admin.html hinzugefügt. */
+.admin-navigation button.active {
+  background-color: #eaf3dc;
+  color: #477d00;
+  font-weight: 600;
+}
+
+
+/* ==================== Hauptbereich ==================== */
+
+.admin-content {
+  /* Nutzt den gesamten verbleibenden Platz neben der Seitenleiste */
+  flex: 1;
+  /* Erlaubt dem Hauptbereich, bei wenig Platz kleiner zu werden */
+  min-width: 0;
+  /* Innenabstand und heller Hintergrund */
+  padding: 40px;
+  background-color: #f8f8f6;
+}
+
+/* Hauptüberschrift des aktuell ausgewählten Verwaltungsbereichs */
+.admin-content h1 {
+  margin: 0 0 10px;
+  font-size: 30px;
+  color: #111111;
+}
+
+/* Beschreibung unter der Hauptüberschrift */
+.subtitle {
+  margin-bottom: 35px;
+  color: #4c4c4c;
+  font-size: 15px;
+}
+
+
+/* ==================== Übersichtskarten ==================== */
+
+.dashboard-cards {
+  /* Ordnet die Karten in einem Raster an */
+  display: grid;
+  /* Zwei gleich große Spalten für die Übersichtskarten */
+  grid-template-columns: repeat(2, 1fr);
+  /* Abstand zwischen den Karten */
+  gap: 20px;
+}
+
+/* Gemeinsame Gestaltung aller Übersichtskarten */
+.dashboard-card {
+  padding: 28px;
+  background-color: #ffffff;
+  border: 1px solid #ddddda;
+  border-radius: 10px;
+  /* Rahmenfarbe ändert sich mit einem weichen Übergang */
+  transition: border-color 0.2s;
+}
+
+/* Grüner Rahmen, wenn man mit der Maus über eine Karte fährt */
+.dashboard-card:hover {
+  border-color: #6dbb00;
+}
+
+/* Große grüne Zahlen und Pluszeichen innerhalb der Karten */
+.dashboard-card h2 {
+  margin: 0 0 12px;
+  font-size: 36px;
+  color: #568f00;
+}
+
+/* Beschreibung unter der Zahl oder dem Pluszeichen */
+.dashboard-card p {
+  margin: 0;
+  font-size: 15px;
+  color: #4c4c4c;
+}
+
+
+/* ==================== Anklickbare Übersichtskarten ==================== */
+
+/* Zusätzliche Gestaltung, da die Übersichtskarten Buttons sind */
+button.dashboard-card {
+  width: 100%;
+  /* Text bleibt links ausgerichtet und übernimmt die vorhandene Schriftart */
+  text-align: left;
+  font-family: inherit;
+  /* Zeigt an, dass die Karte anklickbar ist */
+  cursor: pointer;
+}
+
+/* Leicht grüner Hintergrund beim Überfahren einer Karte mit der Maus */
+button.dashboard-card:hover {
+  background-color: #f5faed;
+}
+
+/* Sichtbarer grüner Rahmen bei der Navigation mit der Tastatur.
+   Dadurch können auch Personen, die keine Maus verwenden,
+   erkennen, welcher Button gerade ausgewählt werden kann. */
+button.dashboard-card:focus-visible,
+.admin-navigation button:focus-visible {
+  outline: 2px solid #477d00;
+  outline-offset: 2px;
+}
+
+/* ==================== Kleinere Bildschirme ==================== */
+
+/* Diese Einstellungen gelten bei einer Bildschirmbreite
+   von maximal 768 Pixeln, zum Beispiel auf Smartphones.
+   Dadurch bleibt der Admin-Bereich auch bei wenig Platz nutzbar. */
+@media (max-width: 768px) {
+
+  /* Seitenleiste und Hauptbereich werden untereinander angezeigt */
+  .admin-layout {
+    flex-direction: column;
+    margin: 20px 16px;
+  }
+
+  /* Die Navigation nutzt die gesamte verfügbare Breite.
+     Die Trennlinie befindet sich nun unten statt rechts. */
+  .admin-sidebar {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid #ddddda;
+  }
+
+  /* Kleinerer Innenabstand, um Platz zu sparen */
+  .admin-content {
+    padding: 24px;
+  }
+
+  /* Übersichtskarten werden untereinander statt nebeneinander angezeigt */
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}
