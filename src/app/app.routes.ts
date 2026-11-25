@@ -1,17 +1,16 @@
+
 import { Routes } from '@angular/router';
 import { Statistik } from './statistik/statistik';
+import { Startseite } from './startseite/startseite';
+import { Login } from './user/login/login';
+import { Registrierung } from './registrierung/registrierung';
+import { PasswortZuruecksetzen } from './user/passwort-zuruecksetzen/passwort-zuruecksetzen';
+import { Admin } from './admin/admin';
 
 export const routes: Routes = [
-
-
-
-
-
-
-
-
-
-
-    // Zeigt die Statistik-Seite unter /statistik.
-  { path: 'statistik', component: Statistik },
+  { path: '', component: Startseite },
+  { path: 'anmeldung', component: Login },
+  { path: 'registrierung', component: Registrierung },
+  { path: 'passwort-zuruecksetzen', component: PasswortZuruecksetzen },
+  { path: 'admin', component: Admin }
 ];

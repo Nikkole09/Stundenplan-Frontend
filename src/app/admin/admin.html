@@ -1,0 +1,157 @@
+<!-- Gesamter Admin-Bereich mit Navigation und Hauptinhalt -->
+<div class="admin-layout">
+
+  <!-- Linke Seitenleiste für die Navigation -->
+  <aside class="admin-sidebar">
+    <h2>Admin-Bereich</h2>
+
+    <p class="navigation-title">VERWALTUNG</p>
+
+    <!-- Navigation zwischen den verschiedenen Verwaltungsbereichen -->
+    <nav class="admin-navigation">
+
+      <!-- [class.active] hebt den aktuell ausgewählten Button hervor.
+        (click) ruft die Funktion bereichWechseln aus der admin.ts auf.
+        Dadurch wird der passende Inhalt im Hauptbereich angezeigt.
+        Dieses Prinzip gilt für alle folgenden Navigationsbuttons. -->
+
+      <button type="button"
+              [class.active]="aktiverBereich() === 'uebersicht'"
+              (click)="bereichWechseln('uebersicht')">
+        Übersicht
+      </button>
+
+      <button type="button"
+              [class.active]="aktiverBereich() === 'kontoanfragen'"
+              (click)="bereichWechseln('kontoanfragen')">
+        Kontoanfragen
+      </button>
+
+      <button type="button"
+              [class.active]="aktiverBereich() === 'professoren'"
+              (click)="bereichWechseln('professoren')">
+        Professor:innen
+      </button>
+
+      <button type="button"
+              [class.active]="aktiverBereich() === 'studierende'"
+              (click)="bereichWechseln('studierende')">
+        Studierende
+      </button>
+
+      <button type="button"
+              [class.active]="aktiverBereich() === 'konto-erstellen'"
+              (click)="bereichWechseln('konto-erstellen')">
+        Konto erstellen
+      </button>
+
+    </nav>
+  </aside>
+
+   <!-- Rechter Hauptbereich für die Inhalte der ausgewählten Seite -->
+  <main class="admin-content">
+
+     <!-- @switch prüft, welcher Verwaltungsbereich gerade ausgewählt ist.
+      Jeder @case enthält den Inhalt eines bestimmten Bereichs.
+      Es wird immer nur der aktuell ausgewählte Bereich angezeigt.
+      Dadurch kann zwischen den Bereichen gewechselt werden,
+      ohne die gesamte Seite neu zu laden. -->
+    @switch (aktiverBereich()) {
+
+      <!-- Startansicht des Admin-Bereichs -->
+      @case ('uebersicht') {
+        <h1>Admin-Dashboard</h1>
+
+        <p class="subtitle">
+          Willkommen im Verwaltungsbereich des Studienplaners.
+        </p>
+
+         <!-- Übersichtskarten für einen schnellen Überblick.
+          Die Zahlen sind momentan nur Beispieldaten.
+          Später sollen die tatsächlichen Zahlen aus dem Backend
+          geladen und hier angezeigt werden.
+          Durch Anklicken einer Karte gelangt man direkt
+          zum entsprechenden Verwaltungsbereich. -->
+        <div class="dashboard-cards">
+
+          <!-- Anzahl der offenen Professorenkonto-Anfragen -->
+          <button type="button" class="dashboard-card"
+                  (click)="bereichWechseln('kontoanfragen')">
+            <h2>3</h2>
+            <p>Offene Kontoanfragen</p>
+          </button>
+
+          <!-- Anzahl der vorhandenen Professorenkonten -->
+          <button type="button" class="dashboard-card"
+                  (click)="bereichWechseln('professoren')">
+            <h2>12</h2>
+            <p>Professor:innen</p>
+          </button>
+
+          <!-- Anzahl der vorhandenen Studierendenkonten -->
+          <button type="button" class="dashboard-card"
+                  (click)="bereichWechseln('studierende')">
+            <h2>84</h2>
+            <p>Studierende</p>
+          </button>
+
+          <!-- Schnellzugriff auf die Erstellung eines neuen Kontos -->
+          <button type="button" class="dashboard-card"
+                  (click)="bereichWechseln('konto-erstellen')">
+            <h2>+</h2>
+            <p>Konto erstellen</p>
+          </button>
+
+        </div>
+      }
+
+       <!-- Bereich für eingehende Professorenkonto-Anfragen.
+        Hier sollen später Anfragen angezeigt, angenommen
+        oder abgelehnt werden können.
+        Die eigentliche Funktion wird in einem späteren Task umgesetzt. -->
+      @case ('kontoanfragen') {
+        <h1>Professorenkonto-Anfragen</h1>
+        <p class="subtitle">
+          Hier können eingehende Kontoanfragen verwaltet werden.
+        </p>
+        <p>Dieser Bereich befindet sich noch in Entwicklung.</p>
+      }
+
+      <!-- Bereich für die Verwaltung vorhandener Professorenkonten.
+        Hier sollen später Konten angezeigt, gesucht und gelöscht
+        sowie Passwörter zurückgesetzt werden können. -->
+      @case ('professoren') {
+        <h1>Professor:innen verwalten</h1>
+        <p class="subtitle">
+          Hier können Professorenkonten verwaltet werden.
+        </p>
+        <p>Dieser Bereich befindet sich noch in Entwicklung.</p>
+      }
+
+       <!-- Bereich für die Verwaltung vorhandener Studierendenkonten.
+        Hier sollen später Konten angezeigt, gesucht und gelöscht
+        sowie Passwörter zurückgesetzt werden können. -->
+      @case ('studierende') {
+        <h1>Studierende verwalten</h1>
+        <p class="subtitle">
+          Hier können Studierendenkonten verwaltet werden.
+        </p>
+        <p>Dieser Bereich befindet sich noch in Entwicklung.</p>
+      }
+
+      <!-- Bereich für die manuelle Erstellung neuer Benutzerkonten.
+        Hier wird später ein Formular eingebunden, mit dem
+        Professoren- und Studierendenkonten erstellt werden können. -->
+      @case ('konto-erstellen') {
+        <h1>Neues Konto erstellen</h1>
+        <p class="subtitle">
+          Hier können neue Benutzerkonten angelegt werden.
+        </p>
+        <p>Dieser Bereich befindet sich noch in Entwicklung.</p>
+      }
+
+    }
+
+  </main>
+
+</div>

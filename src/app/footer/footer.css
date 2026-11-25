@@ -1,0 +1,133 @@
+
+.footer {
+  width: 100%;
+  background-color: #f8f8f6;
+  border-top: 1px solid #ddddda;
+}
+
+.footer-content {
+  max-width: 1400px;
+  min-height: 90px;
+  margin: 0 auto;
+  padding: 20px 35px;
+
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 25px;
+}
+
+.copyright {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: #999c95;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+
+.footer-links span,
+.footer-links a,
+.footer-links summary {
+  font-family: 'DM Sans', Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #777b70;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.footer-links a:hover,
+.github-dropdown summary:hover {
+  color: #263b00;
+  text-decoration: underline;
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.htw-logo {
+  width: 160px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* GitHub Dropdown */
+
+.github-dropdown {
+  position: relative;
+}
+
+.github-dropdown summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.github-dropdown summary::-webkit-details-marker {
+  display: none;
+}
+
+.github-dropdown-links {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+
+  min-width: 120px;
+  padding: 12px;
+
+  background-color: #ffffff;
+  border: 1px solid #ddddda;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.github-dropdown:not([open]) .github-dropdown-links {
+  display: none;
+}
+
+.github-dropdown-links a {
+  font-size: 12px;
+}
+
+/* Responsive Design */
+
+@media (max-width: 850px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .footer-links {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.htw-logo {
+  width: 180px;
+  height: auto;
+  object-fit: contain;
+}
+
+}
