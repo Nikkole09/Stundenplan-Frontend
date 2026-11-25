@@ -12,5 +12,7 @@ export const routes: Routes = [
   { path: 'anmeldung', component: Login },
   { path: 'registrierung', component: Registrierung },
   { path: 'passwort-zuruecksetzen', component: PasswortZuruecksetzen },
-  { path: 'admin', component: Admin }
+  { path: 'admin', component: Admin },
+  { path: 'statistik', component: Statistik }
+  
 ];
