@@ -1,11 +1,11 @@
 
 import { Routes } from '@angular/router';
-import { Statistik } from './statistik/statistik';
 import { Startseite } from './startseite/startseite';
 import { Login } from './user/login/login';
 import { Registrierung } from './registrierung/registrierung';
 import { PasswortZuruecksetzen } from './user/passwort-zuruecksetzen/passwort-zuruecksetzen';
 import { Admin } from './admin/admin';
+import { Statistik } from './statistik/statistik';
 
 export const routes: Routes = [
   { path: '', component: Startseite },
